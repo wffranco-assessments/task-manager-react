@@ -65,30 +65,27 @@ const TaskForm: React.FC<Props> = ({className}) => {
       <h1 className="text-2xl font-bold mb-4">{id ? "Edit Task" : "Create Task"}</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-input mb-4">
-          <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
-            Title
-          </label>
           <input
             type="text"
-            className="w-full border border-gray-400 p-2 rounded-md"
             id="title"
             name="title"
+            placeholder=" "
             value={formData.title}
             onChange={handleChange}
           />
+          <label htmlFor="title">Title</label>
         </div>
-        <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
-            Description
-          </label>
+        <div className="form-input mb-4">
           <textarea
-            className="w-full border border-gray-400 p-2 rounded-md"
+            className=""
             id="description"
             name="description"
             rows={id ? 10 : 3}
+            placeholder=" "
             value={formData.description}
             onChange={handleChange}
           ></textarea>
+          <label htmlFor="description">Description</label>
         </div>
         {id ? (
           <div className="mb-4">
