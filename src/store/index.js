@@ -9,5 +9,8 @@ const store = configureStore({
   },
 });
 
-export const { addTask, updateTask, deleteTask } = taskSlice.actions;
+const { updateSection } = sectionSlice.actions;
+const { addTask, updateTask, deleteTask } = taskSlice.actions;
+
+export { addTask, updateSection, updateTask, deleteTask };
 export default store;

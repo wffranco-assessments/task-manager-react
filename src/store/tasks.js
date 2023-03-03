@@ -5,6 +5,7 @@ export const taskSlice = createSlice({
   initialState: JSON.parse(localStorage.getItem('tasks') || '[]'),
   reducers: {
     addTask(state, action) {
+      console.log('add task');
       state.push({id: state.length + 1, ...action.payload, status: 'ToDo'});
       saveTasks(state);
     },
