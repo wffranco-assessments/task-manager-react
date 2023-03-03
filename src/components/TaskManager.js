@@ -9,10 +9,6 @@ const router = createBrowserRouter([
     element: <TaskList />,
   },
   {
-    path: "/tasks/create",
-    element: <TaskForm />,
-  },
-  {
     path: "/tasks/edit/:id",
     element: <TaskForm />,
   },

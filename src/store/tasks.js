@@ -5,12 +5,10 @@ export const taskSlice = createSlice({
   initialState: JSON.parse(localStorage.getItem('tasks') || '[]'),
   reducers: {
     addTask(state, action) {
-      console.log('add task');
       state.push({id: state.length + 1, ...action.payload, status: 'ToDo'});
       saveTasks(state);
     },
     updateTask(state, action) {
-      console.log({state, action});
       const taskIndex = state.findIndex((task) => task.id === parseInt(action.payload.id));
       if (taskIndex >= 0) {
         state[taskIndex] = action.payload;
