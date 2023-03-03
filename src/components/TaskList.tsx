@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateSection } from "../store";
+import { State, updateSection } from "../store";
 import TaskForm from "./TaskForm";
 
 const TaskList = () => {
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state: State) => state.tasks);
   const dispatch = useDispatch();
 
   useEffect(() => {

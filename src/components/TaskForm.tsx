@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addTask, updateSection, updateTask } from "../store";
+import { addTask, State, updateSection, updateTask } from "../store";
+import { Task } from "../store/tasks";
 
 const statusOptions = {
   ToDo: ['InProgress'],
@@ -12,12 +13,16 @@ const statusOptions = {
   Deployed: [],
 };
 
-const TaskForm = ({className}) => {
+interface Props {
+  className?: string;
+}
+
+const TaskForm: React.FC<Props> = ({className}) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks);
-  const [formData, setFormData] = useState({
+  const tasks = useSelector((state: State) => state.tasks);
+  const [formData, setFormData] = useState<Task>({
     title: "",
     description: "",
     status: "ToDo",
@@ -37,7 +42,7 @@ const TaskForm = ({className}) => {
     }
   }, [dispatch, id, tasks]);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData((formData) => ({
       ...formData,
@@ -45,7 +50,7 @@ const TaskForm = ({className}) => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (id) {
       dispatch(updateTask({id: parseInt(id), ...formData}));
@@ -59,7 +64,7 @@ const TaskForm = ({className}) => {
     <div className={className}>
       <h1 className="text-2xl font-bold mb-4">{id ? "Edit Task" : "Create Task"}</h1>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+        <div className="form-input mb-4">
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
             Title
           </label>

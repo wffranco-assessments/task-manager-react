@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const TaskManager = () => {
+const TaskManager: React.FC = () => {
   return (
     <main className="p-6">
       <RouterProvider router={router} />

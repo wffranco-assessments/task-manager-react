@@ -4,7 +4,7 @@ import store from "./store";
 import Header from "./components/Header";
 import TaskManager from "./components/TaskManager";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Header />

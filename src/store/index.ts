@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { sectionSlice } from "./section";
-import { taskSlice } from "./tasks";
+import { Task, taskSlice } from "./tasks";
+
+export interface State {
+  section: string;
+  tasks: Task[];
+}
 
 const store = configureStore({
   reducer: {

@@ -4,8 +4,6 @@ export const sectionSlice = createSlice({
   name: "section",
   initialState: "",
   reducers: {
-    updateSection: (state, action) => {
-      return action.payload;
-    },
+    updateSection: (_state, action) => action.payload,
   },
 });
