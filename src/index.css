@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos para el input */
+#root {
+  @apply flex flex-col h-screen;
+}
+
 .form-input {
   @apply w-full rounded-t-md bg-gray-200 relative border-b-2 border-gray-700;
 }
@@ -12,9 +15,7 @@
   font-size: 1rem;
 }
 .form-input label {
-  @apply text-gray-800 font-bold transform translate-y-2 transition-all duration-300 absolute left-4 top-0 py-7;
-  font-size: 1rem;
-  pointer-events: none;
+  @apply text-gray-800 font-bold transform translate-y-2 transition-all duration-300 absolute left-4 top-0 py-7 pointer-events-none;
 }
 
 .form-input:focus-within {
@@ -31,4 +32,23 @@
 .form-input input:placeholder-shown + label,
 .form-input textarea:placeholder-shown + label {
   transform: none;
+}
+.form-input textarea {
+  margin-bottom: -.3rem;
+}
+.form-input textarea ~ footer {
+  @apply absolute bottom-0 right-4 text-xs opacity-75 pointer-events-none;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #0002;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #0008;
+    border-radius: 6px;
+  }
 }
